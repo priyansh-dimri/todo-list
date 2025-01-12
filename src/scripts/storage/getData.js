@@ -22,4 +22,8 @@ function getTask(projectName, idx) {
   return undefined;
 }
 
-export { getAllProjects, getAllProjectNames, getTask };
+function projectExists(projectName) {
+    return localStorage.getItem(projectName) ? true : false;
+}
+
+export { getAllProjects, getAllProjectNames, getTask, projectExists };
