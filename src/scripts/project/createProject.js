@@ -10,4 +10,4 @@ function createProject(projectName) {
   }
 }
 
-export {createProject};
+export default createProject;
