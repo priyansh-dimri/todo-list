@@ -26,4 +26,13 @@ function deleteTask(projectName, idx) {
   addProject(projectName, project);
 }
 
-export { addProject, deleteProject, addTask, deleteTask };
+function toggleTaskChecked(projectName, idx) {
+  let localStorage = window["localStorage"];
+
+  const project = JSON.parse(localStorage.getItem(projectName));
+  project.task.checked = !project.task.checked;
+
+  addProject(projectName, project);
+}
+
+export { addProject, deleteProject, addTask, deleteTask, toggleTaskChecked };
