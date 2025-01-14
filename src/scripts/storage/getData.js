@@ -9,8 +9,15 @@ function getAllProjects() {
   return allProjects;
 }
 
-function getAllProjectNames() {
-    return Object.keys(localStorage);
+function getAllProjectNamesAndVisibility() {
+    const projectVisibility = {};
+    
+    Object.keys(localStorage).forEach((key) => {
+      const project = localStorage.getItem(key);
+      projectVisibility[key] = (JSON.parse(project)).hide;
+    });
+
+    return projectVisibility;
 }
 
 function getTask(projectName, idx) {
@@ -26,4 +33,4 @@ function projectExists(projectName) {
     return localStorage.getItem(projectName) ? true : false;
 }
 
-export { getAllProjects, getAllProjectNames, getTask, projectExists };
+export { getAllProjects, getAllProjectNamesAndVisibility, getTask, projectExists };
