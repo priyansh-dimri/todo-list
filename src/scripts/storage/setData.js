@@ -45,4 +45,3 @@ function toggleTaskChecked(projectName, idx) {
 }
 
 export { addProject, deleteProject, toggleProjectHide, addTask, deleteTask, toggleTaskChecked };
-g
