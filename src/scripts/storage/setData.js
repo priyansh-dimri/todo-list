@@ -8,6 +8,15 @@ function deleteProject(projectName) {
   localStorage.removeItem(projectName);
 }
 
+function toggleProjectHide(projectName) {
+  let localStorage = window["localStorage"];
+
+  const project = JSON.parse(localStorage.getItem(projectName));
+  project.hide = !project.hide;
+
+  addProject(projectName, project);
+}
+
 function addTask(projectName, task) {
   let localStorage = window["localStorage"];
 
@@ -35,4 +44,5 @@ function toggleTaskChecked(projectName, idx) {
   addProject(projectName, project);
 }
 
-export { addProject, deleteProject, addTask, deleteTask, toggleTaskChecked };
+export { addProject, deleteProject, toggleProjectHide, addTask, deleteTask, toggleTaskChecked };
+g
