@@ -2,8 +2,9 @@
   --main-background: #f8fafc;
   --sidebar-background: #e2e8f0;
   --select-background: #fecaca;
+  --project-card-background: #f1f5f9;
 
-  --font-color: #0f172a;
+  --font-color: #334155;
   --select-font-color: #f87171;
 
   --icon-height: 20px;
@@ -76,4 +77,85 @@ body {
 
 #add-project:active {
   background-color: var(--select-background);
+}
+
+/* Main styles */
+#main {
+  display: grid;
+  overflow: scroll;
+}
+
+#main-sub-container {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.project-card {
+  height: max-content;
+  width: 20vw;
+  background-color: var(--project-card-background);
+  padding: 0.5rem 1rem 1rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+}
+
+.project-card-title {
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.task-cards-container {
+  display: grid;
+  gap: 1rem;
+}
+
+.task-card {
+  font-size: 0.9rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: repeat(3, max-content);
+  overflow: hidden;
+  gap: 0.25rem 0.25rem;
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(121, 121, 121, 0.213);
+}
+
+.task-check {
+  grid-row: 1 / -1;
+  height: var(--icon-height);
+}
+
+.task-title {
+  font-size: 0.9rem;
+}
+
+.due-date,
+.priority {
+  font-size: 0.6rem;
+}
+
+.due-date {
+  font-style: italic;
+}
+
+.priority {
+  font-weight: bold;
+}
+
+.low-priority {
+  color: rgb(98, 135, 42);
+}
+
+.medium-priority {
+  color: rgb(131, 131, 12);
+}
+
+.high-priority {
+  color: rgb(100, 20, 20);
 }
