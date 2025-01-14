@@ -5,6 +5,8 @@
 
   --font-color: #0f172a;
   --select-font-color: #f87171;
+
+  --icon-height: 20px;
 }
 
 body {
@@ -20,6 +22,58 @@ body {
   height: 100vh;
 }
 
+/* Sidebar styles */
 #sidebar {
   background-color: var(--sidebar-background);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.todo-heading {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.projects-heading {
+  font-style: italic;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+#projects-titles-container {
+  height: 70vh;
+  overflow: scroll;
+
+  padding: 0.5rem;
+}
+
+.projects-title-sub-container {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.25rem;
+}
+
+.toggle-icon,
+.project-icon {
+  height: var(--icon-height);
+}
+
+.toggle-project {
+  background-color: transparent;
+  border: none;
+}
+
+#add-project {
+  border-radius: 100px;
+  border: 2px solid black;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: transparent;
+}
+
+#add-project:active {
+  background-color: var(--select-background);
 }

@@ -7,7 +7,29 @@
 </head>
 <body>
     <div class="container">
-        <div id="sidebar"></div>
+        <div id="sidebar">
+            <div class="todo-heading">TODO</div>
+            <div class="projects-heading">Your Projects</div>
+            <div class="projects-container">
+                <div id="projects-titles-container">
+                    <div class="projects-title-sub-container">
+                        <img src="./assets/project-icon.svg" alt="Hash Icon" class="project-icon" />
+                        <div class="project-title">Home</div>
+                        <button class="toggle-project" type="button" aria-label="Toggle Project Visibility" value="visible">
+                            <img src="./assets/show.svg" alt="Show" class="toggle-icon">
+                        </button>
+                    </div>
+                    <div class="projects-title-sub-container">
+                        <img src="./assets/project-icon.svg" alt="Hash Icon" class="project-icon" />
+                        <div class="project-title">Work</div>
+                        <button class="toggle-project" type="button" aria-label="Toggle Project Visibility" value="visible">
+                            <img src="./assets/show.svg" alt="Show" class="toggle-icon">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <button id="add-project" type="button">Add Project</button>
+        </div>
         <div id="main"></div>
     </div>
 </body>
