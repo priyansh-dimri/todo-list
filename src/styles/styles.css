@@ -231,7 +231,7 @@ select {
   grid-template-columns: auto 1fr;
   gap: 1rem 0.25rem;
   align-items: center;
-  >label {
+  > label {
     justify-self: end;
   }
 }
