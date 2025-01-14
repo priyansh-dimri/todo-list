@@ -77,5 +77,51 @@
             </div>
         </div>
     </div>
+    <dialog id="add-project-form">
+        <p class="form-heading">Add Project</p>
+        <form method="dialog">
+            <label class="form-label">Project Name</label>
+            <input type="text" name="project-name" id="project-name" placeholder="School, College, etc." />
+        </form>
+        <div class="form-button-container">
+            <button id="add-project-cancel" value="cancel" formmethod="dialog" class="form-button">Cancel</button>
+            <button id="add-project-confirm" value="default" class="form-button confirm-button">Confirm</button>
+        </div>
+    </dialog>
+    <dialog id="add-task-form">
+        <p class="form-heading">Add Task</p>
+        <form method="dialog" id="add-task-form-container">
+            <label class="form-label">Title</label>
+            <input type="text" name="task-title" id="task-title" placeholder="Wash Dishes, Make PPT, etc." />
+
+            <label class="form-label description-label">Description</label>
+            <textarea name="task-title" id="task-description" placeholder="Wash Dishes at the cabinet"></textarea>
+
+            <label class="form-label">Date</label>
+            <input type="date" name="due-date" id="due-date" placeholder="Wash Dishes, Make PPT, etc." />
+
+            <label class="form-label">
+                Project
+            </label>
+            <select id="select-project">
+                <option>Home</option>
+                <option>Work</option>
+            </select>
+
+            <label>Priority</label>
+            <input type="range" id="priority" name="priority" min="0" max="2" step="1" />
+
+            <div></div>
+            <div class="priority-names-container">
+                <div class="priority-name low-priority">Low</div>
+                <div class="priority-name medium-priority">Medium</div>
+                <div class="priority-name high-priority">High</div>
+            </div>
+        </form>
+        <div class="form-button-container">
+            <button id="add-task-cancel" value="cancel" formmethod="dialog" class="form-button">Cancel</button>
+            <button id="add-task-confirm" value="default" class="form-button confirm-button">Confirm</button>
+        </div>
+    </dialog>
 </body>
 </html>

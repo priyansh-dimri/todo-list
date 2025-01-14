@@ -9,6 +9,9 @@
   --select-font-color: #f87171;
 
   --icon-height: 20px;
+
+  --thin-border: 1px solid #e2e8f0;
+  --light-shadow: var(--thin-border);
 }
 
 body {
@@ -127,7 +130,7 @@ body {
   border: 1px solid #e2e8f0;
   padding: 0.5rem;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(121, 121, 121, 0.213);
+  box-shadow: var(--thin-border);
 }
 
 .task-check {
@@ -161,4 +164,94 @@ body {
 
 .high-priority {
   color: rgb(100, 20, 20);
+}
+
+/* Project dialog styling */
+dialog {
+  width: 50vw;
+}
+
+#add-project-form {
+  position: fixed;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--thin-border);
+  padding: 1rem;
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(2px);
+}
+
+.form-heading {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--dark-red-color);
+}
+
+.form-label {
+  font-size: 0.9rem;
+}
+
+input[type="text"],
+input[type="date"],
+#task-description,
+select {
+  border-radius: 5px;
+  border: var(--thin-border);
+  outline: none;
+  padding: 0.25rem 0.5rem;
+  background: none;
+}
+
+.form-button-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.form-button {
+  border-radius: 5px;
+  border: var(--thin-border);
+  padding: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--dark-red-color);
+}
+
+.confirm-button {
+  background-color: var(--dark-red-color);
+  color: var(--main-background);
+}
+
+#add-task-form-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem 0.25rem;
+  align-items: center;
+  >label {
+    justify-self: end;
+  }
+}
+
+.description-label {
+  align-self: start;
+}
+
+#priority {
+  accent-color: var(--dark-red-color);
+}
+
+.priority-names-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  margin-top: -0.5rem;
+}
+
+.priority-name {
+  font-weight: bold;
+  font-size: 0.8rem;
 }
