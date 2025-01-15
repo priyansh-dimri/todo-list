@@ -67,4 +67,4 @@ const populateSidebar = () => {
   }
 };
 
-export { populateSidebar };
+export default populateSidebar;

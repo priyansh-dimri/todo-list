@@ -1,9 +1,10 @@
+// Returns non hidden projects
 function getAllProjects() {
   let allProjects = {};
 
   Object.keys(localStorage).forEach((key) => {
     const project = localStorage.getItem(key);
-    allProjects[key] = JSON.parse(project);
+    if(!project.hide) allProjects[key] = JSON.parse(project);
   });
 
   return allProjects;

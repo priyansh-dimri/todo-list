@@ -39,7 +39,7 @@ function toggleTaskChecked(projectName, idx) {
   let localStorage = window["localStorage"];
 
   const project = JSON.parse(localStorage.getItem(projectName));
-  project.task.checked = !project.task.checked;
+  project.tasks[idx].checked = !project.tasks[idx].checked;
 
   addProject(projectName, project);
 }
