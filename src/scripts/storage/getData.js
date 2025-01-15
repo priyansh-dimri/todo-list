@@ -1,5 +1,9 @@
-// Returns non hidden projects
 function getAllProjects() {
+  return Object.keys(localStorage);
+}
+
+// Returns non hidden projects
+function getAllNonHiddenProjects() {
   let allProjects = {};
 
   Object.keys(localStorage).forEach((key) => {
@@ -34,4 +38,4 @@ function projectExists(projectName) {
     return localStorage.getItem(projectName) ? true : false;
 }
 
-export { getAllProjects, getAllProjectNamesAndVisibility, getTask, projectExists };
+export { getAllProjects, getAllNonHiddenProjects, getAllProjectNamesAndVisibility, getTask, projectExists };

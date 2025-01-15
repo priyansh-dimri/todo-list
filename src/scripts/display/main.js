@@ -2,11 +2,33 @@ import deleteIconPath from "./../../assets/delete.svg";
 import addTaskIconPath from "./../../assets/add.svg";
 import checkedIcon from "./../../assets/checked.svg";
 import uncheckedIcon from "./../../assets/unchecked.svg";
-import { getAllProjects } from "../storage/getData";
+import { getAllProjects, getAllNonHiddenProjects } from "../storage/getData";
 import { deleteProject } from "../storage/setData";
 import toggleTask from "../task/toggleTask";
 import { formatDistanceToNow } from "date-fns";
 import populateDisplay from "./display";
+
+const createProjectOption = (projectName) => {
+  const projectOption = document.createElement("option");
+  projectOption.textContent = projectName;
+
+  return projectOption;
+};
+
+const showAddTaskForm = (projectName) => {
+  const addTaskForm = document.getElementById("add-task-form");
+  addTaskForm.showModal();
+
+  const projectSelect = document.getElementById("select-project");
+  projectSelect.replaceChildren();
+
+  const allProjectNames = getAllProjects();
+  allProjectNames.forEach((pName) =>
+    projectSelect.appendChild(createProjectOption(pName))
+  );
+
+  projectSelect.value = projectName;
+};
 
 const createProjectCardTitleContainer = (projectName) => {
   const projectCardTitleContainer = document.createElement("div");
@@ -36,7 +58,7 @@ const createProjectCardTitleContainer = (projectName) => {
   addTaskIcon.dataset.value = projectName;
   addTaskIcon.addEventListener("click", (e) => {
     let taskProjectName = e.target.dataset.value;
-    // TODO: add function to display add task dialog
+    showAddTaskForm(taskProjectName);
   });
 
   projectCardTitleContainer.append(deleteIcon, projectCardTitle, addTaskIcon);
@@ -108,7 +130,7 @@ const createProjectCard = (projectName, project) => {
 const populateMain = () => {
   const main = document.getElementById("main-sub-container");
   main.replaceChildren();
-  const allNonHiddenProjects = getAllProjects();
+  const allNonHiddenProjects = getAllNonHiddenProjects();
   Object.keys(allNonHiddenProjects).forEach((projectName) => {
     main.appendChild(
       createProjectCard(projectName, allNonHiddenProjects[projectName])
