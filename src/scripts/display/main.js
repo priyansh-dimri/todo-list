@@ -19,7 +19,6 @@ const createProjectCardTitleContainer = (projectName) => {
   deleteIcon.className = "icon";
   deleteIcon.dataset.value = projectName;
   deleteIcon.addEventListener("click", (e) => {
-    console.log(e.target);
     let projectToDelete = e.target.dataset.value;
     deleteProject(projectToDelete);
     populateDisplay();
@@ -61,10 +60,9 @@ const createTaskCard = (task, idx, projectName) => {
   taskCheckedIcon.dataset.value = projectName;
   taskCheckedIcon.dataset.idx = idx;
   taskCheckedIcon.addEventListener("click", (e) => {
-    console.log(e.target);
     let projectTaskToToggle = e.target.dataset.value;
     let taskIdx = e.target.dataset.idx;
-    toggleTask(projectTaskToToggle, idx);
+    toggleTask(projectTaskToToggle, taskIdx);
     populateDisplay();
   });
 

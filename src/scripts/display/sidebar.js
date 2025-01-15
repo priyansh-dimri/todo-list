@@ -5,10 +5,14 @@ import { getAllProjectNamesAndVisibility } from "../storage/getData";
 import toggleProject from "./../project/hideProject";
 import populateDisplay from "./display";
 
-const hashIcon = document.createElement("img");
-hashIcon.className = "icon";
-hashIcon.alt = "Hash icon";
-hashIcon.src = hashIconPath;
+const createHashIcon = () => {
+  const hashIcon = document.createElement("img");
+  hashIcon.className = "icon";
+  hashIcon.alt = "Hash icon";
+  hashIcon.src = hashIconPath;
+
+  return hashIcon;
+}
 
 const createVisibilityImage = (visible) => {
   const visibilityImage = document.createElement("img");
@@ -46,7 +50,7 @@ const createProjectTitleSubContainer = (projectName, visible) => {
   projectTitle.textContent = projectName;
 
   projectTitleSubContainer.append(
-    hashIcon,
+    createHashIcon(),
     projectTitle,
     createProjectVisibleButton(projectName, visible)
   );
@@ -58,11 +62,13 @@ const populateSidebar = () => {
   const projectTitlesContainer = document.getElementById(
     "projects-titles-container"
   );
+  projectTitlesContainer.replaceChildren();
+
   const allProjectNamesVisibility = getAllProjectNamesAndVisibility();
 
   for (let projectName in allProjectNamesVisibility) {
     const visible = allProjectNamesVisibility[projectName];
-    projectTitlesContainer.replaceChildren(
+    projectTitlesContainer.append(
       createProjectTitleSubContainer(projectName, visible)
     );
   }

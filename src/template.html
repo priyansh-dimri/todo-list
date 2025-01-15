@@ -11,136 +11,16 @@
         <div class="todo-heading">TODO</div>
         <div class="projects-heading">Your Projects</div>
         <div class="projects-container">
-          <div id="projects-titles-container">
-            <div class="projects-title-sub-container">
-              <img
-                src="./assets/project-icon.svg"
-                alt="Hash Icon"
-                class="icon"
-              />
-              <div class="project-title">Home</div>
-              <button
-                class="toggle-project"
-                type="button"
-                aria-label="Toggle Project Visibility"
-                value="visible"
-              >
-                <img
-                  src="./assets/show.svg"
-                  alt="Show"
-                  class="icon toggle-icon"
-                />
-              </button>
-            </div>
-            <div class="projects-title-sub-container">
-              <img
-                src="./assets/project-icon.svg"
-                alt="Hash Icon"
-                class="icon"
-              />
-              <div class="project-title">Work</div>
-              <button
-                class="toggle-project"
-                type="button"
-                aria-label="Toggle Project Visibility"
-                value="visible"
-              >
-                <img
-                  src="./assets/show.svg"
-                  alt="Show"
-                  class="icon toggle-icon"
-                />
-              </button>
-            </div>
-          </div>
+          <div id="projects-titles-container"></div>
         </div>
         <button id="add-project" type="button">Add Project</button>
       </div>
       <div id="main">
-        <div id="main-sub-container">
-          <div class="project-card">
-            <div class="project-card-title-container">
-              <img
-                src="./assets/delete.svg"
-                alt="Delete Project"
-                role="button"
-                class="icon"
-              />
-              <div class="project-card-title">Home</div>
-              <img
-                src="./assets/add.svg"
-                alt="Add Task"
-                role="button"
-                class="icon"
-              />
-            </div>
-            <div class="task-cards-container">
-              <div class="task-card">
-                <img
-                  src="./assets/unchecked.svg"
-                  alt="Checked"
-                  class="icon task-check"
-                />
-                <div class="task-title">Get Groceries</div>
-                <div class="due-date">Jan 1, 2030</div>
-                <div class="priority high-priority">High Priority</div>
-              </div>
-              <div class="task-card">
-                <img
-                  src="./assets/checked.svg"
-                  alt="Checked"
-                  class="icon task-check"
-                />
-                <div class="task-title">Water Plants</div>
-                <div class="due-date">Jan 1, 2030</div>
-                <div class="priority low-priority">Low Priority</div>
-              </div>
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="project-card-title-container">
-              <img
-                src="./assets/delete.svg"
-                alt="Delete Project"
-                role="button"
-                class="icon"
-              />
-              <div class="project-card-title">Work</div>
-              <img
-                src="./assets/add.svg"
-                alt="Add Task"
-                role="button"
-                class="icon"
-              />
-            </div>
-            <div class="task-cards-container">
-              <div class="task-card">
-                <img
-                  src="./assets/checked.svg"
-                  alt="Checked"
-                  class="icon task-check"
-                />
-                <div class="task-title">Do some work</div>
-                <div class="due-date">Jan 1, 2030</div>
-                <div class="priority high-priority">High Priority</div>
-              </div>
-              <div class="task-card">
-                <img
-                  src="./assets/checked.svg"
-                  alt="Checked"
-                  class="icon task-check"
-                />
-                <div class="task-title">Do some more work</div>
-                <div class="due-date">Jan 1, 2030</div>
-                <div class="priority medium-priority">Medium Priority</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div id="main-sub-container"></div>
       </div>
     </div>
     <dialog id="add-project-form">
-      <p class="form-heading">Add Project</p>
+      <div class="form-heading">Add Project</div>
       <form method="dialog">
         <label class="form-label">Project Name</label>
         <input
