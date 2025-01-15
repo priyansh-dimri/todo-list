@@ -3,7 +3,7 @@ import addTaskIconPath from "./../../assets/add.svg";
 import checkedIcon from "./../../assets/checked.svg";
 import uncheckedIcon from "./../../assets/unchecked.svg";
 import { getAllProjects, getAllNonHiddenProjects } from "../storage/getData";
-import { deleteProject } from "../storage/setData";
+import { deleteProject, deleteTask } from "../storage/setData";
 import toggleTask from "../task/toggleTask";
 import { formatDistanceToNow } from "date-fns";
 import populateDisplay from "./display";
@@ -88,6 +88,18 @@ const createTaskCard = (task, idx, projectName) => {
     populateDisplay();
   });
 
+  const deleteTaskIcon = document.createElement("img");
+  deleteTaskIcon.src = deleteIconPath;
+  deleteTaskIcon.classList.add("icon", "task-delete");
+  deleteTaskIcon.dataset.value = projectName;
+  deleteTaskIcon.dataset.idx = idx;
+  deleteTaskIcon.addEventListener("click", (e) => {
+    let projectTaskToDelete = e.target.dataset.value;
+    let taskIdx = e.target.dataset.idx;
+    deleteTask(projectTaskToDelete, taskIdx);
+    populateDisplay();
+  });
+
   const taskTitle = document.createElement("div");
   taskTitle.className = "task-title";
   taskTitle.textContent = task.title;
@@ -100,7 +112,13 @@ const createTaskCard = (task, idx, projectName) => {
   priority.classList.add("priority", `${task.priority}-priority`);
   priority.textContent = capitalizeFirstLetter(task.priority) + " Priority";
 
-  taskCard.append(taskCheckedIcon, taskTitle, dueDate, priority);
+  taskCard.append(
+    taskCheckedIcon,
+    taskTitle,
+    dueDate,
+    priority,
+    deleteTaskIcon
+  );
   return taskCard;
 };
 
