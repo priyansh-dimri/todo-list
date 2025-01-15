@@ -3,8 +3,8 @@ function getAllProjects() {
   let allProjects = {};
 
   Object.keys(localStorage).forEach((key) => {
-    const project = localStorage.getItem(key);
-    if(!project.hide) allProjects[key] = JSON.parse(project);
+    const project = JSON.parse(localStorage.getItem(key));
+    if(!project.hide) allProjects[key] = project;
   });
 
   return allProjects;

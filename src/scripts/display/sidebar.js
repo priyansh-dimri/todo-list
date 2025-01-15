@@ -3,6 +3,7 @@ import hideEye from "./../../assets/hide.svg";
 import showEye from "./../../assets/show.svg";
 import { getAllProjectNamesAndVisibility } from "../storage/getData";
 import toggleProject from "./../project/hideProject";
+import populateDisplay from "./display";
 
 const hashIcon = document.createElement("img");
 hashIcon.className = "icon";
@@ -30,7 +31,7 @@ const createProjectVisibleButton = (projectName, visible) => {
     const projectNameToToggle = e.target.parentNode.value;
     if (projectNameToToggle) {
       toggleProject(projectNameToToggle);
-      populateSidebar();
+      populateDisplay();
     }
   });
   return toggleButton;

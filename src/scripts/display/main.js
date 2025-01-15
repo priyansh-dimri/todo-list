@@ -6,6 +6,7 @@ import { getAllProjects } from "../storage/getData";
 import { deleteProject } from "../storage/setData";
 import toggleTask from "../task/toggleTask";
 import { formatDistanceToNow } from "date-fns";
+import populateDisplay from "./display";
 
 const createProjectCardTitleContainer = (projectName) => {
   const projectCardTitleContainer = document.createElement("div");
@@ -21,7 +22,7 @@ const createProjectCardTitleContainer = (projectName) => {
     console.log(e.target);
     let projectToDelete = e.target.dataset.value;
     deleteProject(projectToDelete);
-    populateMain(); // TODO: Change this to populate entire site data function. Similarly in sidebar's hide button
+    populateDisplay();
   });
 
   const projectCardTitle = document.createElement("div");
@@ -64,7 +65,7 @@ const createTaskCard = (task, idx, projectName) => {
     let projectTaskToToggle = e.target.dataset.value;
     let taskIdx = e.target.dataset.idx;
     toggleTask(projectTaskToToggle, idx);
-    populateMain(); // TODO: add page entire site populate function here too.
+    populateDisplay();
   });
 
   const taskTitle = document.createElement("div");
