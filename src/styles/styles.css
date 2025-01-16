@@ -47,6 +47,9 @@ body {
   font-style: italic;
   text-align: center;
   font-size: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #cbd5e1;
+  margin: 0 1rem;
 }
 
 #projects-titles-container {
