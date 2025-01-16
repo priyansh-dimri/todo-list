@@ -2,7 +2,7 @@ import deleteIconPath from "./../../assets/delete.svg";
 import addTaskIconPath from "./../../assets/add.svg";
 import checkedIcon from "./../../assets/checked.svg";
 import uncheckedIcon from "./../../assets/unchecked.svg";
-import { getAllProjects, getAllNonHiddenProjects } from "../storage/getData";
+import { getAllProjects, getAllNonHiddenProjects, getTask } from "../storage/getData";
 import { deleteProject, deleteTask } from "../storage/setData";
 import toggleTask from "../task/toggleTask";
 import { formatDistanceToNow } from "date-fns";
@@ -100,9 +100,39 @@ const createTaskCard = (task, idx, projectName) => {
     populateDisplay();
   });
 
+  const showTaskDetails = (task, projectName) => {
+    const taskDetailDialog = document.getElementById("task-detail");
+    taskDetailDialog.showModal();
+
+    const taskTitle = document.getElementById("task-detail-title");
+    taskTitle.textContent = task.title;
+
+    const taskDetailDescription = document.getElementById("task-detail-description");
+    taskDetailDescription.textContent = task.description;
+
+    const taskDetailProjectName = document.getElementById("task-detail-project-name");
+    taskDetailProjectName.textContent = projectName;
+
+    const taskDetailDueDate = document.getElementById("task-detail-due-date");
+    taskDetailDueDate.textContent = formatDistanceToNow(task.dueDate);
+
+    const taskPriority = document.getElementById("task-detail-priority");
+    taskPriority.className = `${task.priority}-priority`;
+    taskPriority.textContent = capitalizeFirstLetter(task.priority) + " Priority";
+  }
+
   const taskTitle = document.createElement("div");
   taskTitle.className = "task-title";
   taskTitle.textContent = task.title;
+  taskTitle.dataset.idx = idx;
+  taskTitle.dataset.value = projectName;
+  taskTitle.addEventListener("click", (e) => {
+    let taskIdx = e.target.dataset.idx;
+    let taskProjectName = e.target.dataset.value;
+
+    const taskDetails = getTask(taskProjectName, taskIdx);
+    showTaskDetails(taskDetails, projectName);
+  });
 
   const dueDate = document.createElement("div");
   dueDate.className = "due-date";

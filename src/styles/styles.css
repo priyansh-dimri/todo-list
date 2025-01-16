@@ -147,6 +147,11 @@ body {
   overflow: hidden;
 }
 
+.task-title:hover {
+  color: var(--dark-red-color);
+  cursor:pointer;
+}
+
 .due-date,
 .priority {
   font-size: 0.6rem;
@@ -189,7 +194,8 @@ dialog::backdrop {
   backdrop-filter: blur(2px);
 }
 
-.form-heading {
+.form-heading,
+#task-detail-title {
   text-align: center;
   margin-bottom: 1rem;
   font-size: 1.5rem;
@@ -260,4 +266,31 @@ select {
 .priority-name {
   font-weight: bold;
   font-size: 0.8rem;
+}
+
+#task-detail-container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem 0.25rem;
+  align-items: center;
+  > label {
+    justify-self: end;
+  }
+}
+
+#task-detail-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.task-detail-due-date-container {
+  font-style: italic;
+}
+
+.form-button-container {
+  width: 100%;
+}
+
+#task-detail-cancel {
+  width: 100%;
 }

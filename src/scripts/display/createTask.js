@@ -28,7 +28,7 @@ const confirmTaskCreate = () => {
   if (!taskTitle) return;
 
   const taskDescription =
-    document.getElementById("task-description").textContent;
+    document.getElementById("task-description").value;
 
   const dueDate = document.getElementById("due-date").value;
   if (!dueDate) return;
